@@ -1,25 +1,3 @@
-# lightning.pytorch==2.4.0
-seed_everything: true
-trainer:
-  accelerator: auto
-  strategy: auto
-  devices: auto
-  num_nodes: 1
-  precision: null
-  logger: null
-  callbacks: null
-  fast_dev_run: true
-  max_epochs: null
-  limit_train_batches: null
-  limit_val_batches: null
-  limit_test_batches: null
-  limit_predict_batches: null
-  val_check_interval: null
-  log_every_n_steps: null
-  enable_progress_bar: null
-  deterministic: null
-  profiler: null
-  default_root_dir: null
 model:
   dataset_conf: config/datasets/titan_refacto.json
   model_conf: null
@@ -31,7 +9,6 @@ model:
   training_strategy: diff_ar
   save_path: /scratch/shared/py4cast/logs/camp0/test_cli_lea/
   use_lr_scheduler: false
-  precision: bf16
   no_log: false
   channels_last: false
 data:
@@ -43,4 +20,3 @@ data:
   num_workers: 10
 # optimizer: null
 # lr_scheduler: null
-ckpt_path: null

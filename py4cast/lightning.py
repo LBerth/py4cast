@@ -168,7 +168,6 @@ class AutoRegressiveLightning(LightningModule):
         len_train_loader: int = 1,
         save_path: Path = None,
         use_lr_scheduler: bool = False,
-        precision: str = "bf16",
         no_log: bool = False,
         channels_last: bool = False,
         *args,
@@ -191,7 +190,6 @@ class AutoRegressiveLightning(LightningModule):
         self.len_train_loader = len_train_loader
         self.save_path = save_path
         self.use_lr_scheduler = use_lr_scheduler
-        self.precision = precision
         self.no_log = no_log
         self.channels_last = channels_last
 
@@ -304,7 +302,7 @@ class AutoRegressiveLightning(LightningModule):
         """
         Return the appropriate torch dtype for the desired precision in hparams.
         """
-        return str_to_dtype[self.precision]
+        return str_to_dtype[str(self.trainer.precision)]
 
     def print_summary_model(self):
         # self.dataset_info.summary()
